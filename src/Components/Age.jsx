@@ -5,31 +5,29 @@ function Age() {
   const [ageDetails, setAgeDetails] = useState(null);
 
   const calculateRemainingTime = (currentDate, dobDate) => {
-    const years = currentDate.getFullYear() - dobDate.getFullYear();
-    const months = currentDate.getMonth() - dobDate.getMonth();
-    const days = currentDate.getDate() - dobDate.getDate();
+    let years = currentDate.getFullYear() - dobDate.getFullYear();
+    let months = currentDate.getMonth() - dobDate.getMonth();
+    let days = currentDate.getDate() - dobDate.getDate();
 
-    let remainingMonths = months;
-    let remainingDays = days;
-
-    if (remainingDays < 0) {
+    if (days < 0) {
       const prevMonthDate = new Date(
         currentDate.getFullYear(),
-        currentDate.getMonth(),
+        currentDate.getMonth() - 1,
         0
       ).getDate();
-      remainingDays = prevMonthDate - dobDate.getDate() + currentDate.getDate();
-      remainingMonths--;
+      days = prevMonthDate - dobDate.getDate() + currentDate.getDate();
+      months--;
     }
 
-    if (remainingMonths < 0) {
-      remainingMonths += 12;
+    if (months < 0) {
+      years--;
+      months += 12;
     }
 
     return {
-      years:years-(1),
-      months: remainingMonths,
-      days: remainingDays,
+      years: years,
+      months: months,
+      days: days,
     };
   };
 
