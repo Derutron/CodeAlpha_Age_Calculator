@@ -41,16 +41,16 @@ function Age() {
 
   return (
     <div className="w-screen h-screen mx-auto flex items-center justify-center bg-gray-200">
-      <div className="bg-red-100 p-8 rounded shadow-md w-[90%] max-w-[900px]">
-        <h1 className="text-3xl md:text-5xl font-semibold mb-4 text-center">Age Calculator</h1>
-        <label htmlFor="dob" className="block text-lg md:text-3xl ml-[0px] mb-2">
+      <div className="bg-red-100 p-8 rounded shadow-md w-[100%] h-screen flex flex-col items-center justify-center">
+        <h1 className="text-3xl md:text-5xl font-semibold mb-10 text-center">Age Calculator</h1>
+        <label htmlFor="dob" className="block text-lg md:text-3xl mb-10">
           Enter your date of Birth:
         </label>
         <div className="flex justify-center">
           <input
             type="date"
             id="dob"
-            className="border border-gray-700 p-2 w-full md:w-[840px] mb-4"
+            className="border border-gray-700 p-2 w-[90vw] mb-4"
             value={dob}
             onChange={(e) => setDob(e.target.value)}
             required
@@ -58,7 +58,7 @@ function Age() {
         </div>
         <div className="flex justify-center">
           <button
-            className="bg-blue-500 w-full md:w-[840px] h-[55px] text-white p-2 text-lg md:text-2xl rounded hover:bg-blue-600 focus:outline-none"
+            className="bg-blue-500 w-[90vw]  h-[55px] text-white p-2 text-lg md:text-2xl rounded hover:bg-blue-600 focus:outline-none "
             onClick={calculateAge}
           >
             Calculate Age
